@@ -61,20 +61,20 @@ const Velociraptor_D = new Velociraptor({
 // Using your dinosaur objects, log answers to these questions:
 
 // How much did tyrannosaurus weigh?
-console.log(Tyrannosaurus_D.weight());
+console.log(Tyrannosaurus_D.weight);
 
 // What was the diet of a velociraptor?
-console.log(Velociraptor_D.diet());
+console.log(Velociraptor_D.diet);
 
 // How long was a stegosaurus?
-console.log(Stegosaurus_D.length());
+console.log(Stegosaurus_D.length);
 
 // What time period did tyrannosaurus live in?
-console.log(Tyrannosaurus_D.period());
+console.log(Tyrannosaurus_D.period);
 
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
-Tyrannosaurus_D.prototype.roar = function(){
+Tyrannosaurus_D.__proto__.roar= function(){
   return `"RAWERSRARARWERSARARARRRR!"`;
 }
 console.log(Tyrannosaurus_D.roar());
@@ -111,7 +111,7 @@ const universities2 = graduates.sort(function(a, b) {
     }
     return 0;
   });
-  return universities2;
+  
 
 console.log(universities2);
 
@@ -165,8 +165,9 @@ The zoos want to display both the scientific name and the animal name in front o
 const displayNames = [];
 
 zooAnimals.forEach((element) => {
- displayNames.push(`name: ${zooAnimals.animal_name}, scientific: ${zooAnimals.scientific_name}`);
+ displayNames.push(`name: ${element.animal_name}, scientific: ${element.scientific_name}`);
 });
+
 console.log(displayNames);
 
 /* Request 2: .map()
@@ -177,7 +178,7 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 
 const lowCaseAnimalNames = [];
 let roots = zooAnimals.map(function(name) {
-    return lowCaseAnimalNames.push(zooAnimals.animal_name.toLowerCase());
+    lowCaseAnimalNames.push(name.animal_name.toLowerCase());
 })
 console.log(lowCaseAnimalNames);
 
@@ -203,9 +204,14 @@ The zoos need to know their total animal population across the United States. Fi
 */
 const populationTotal = 0;
 
+function callback(number){
+  return number;
+}
+
 const populationTotal2 = zooAnimals.reduce(function(accumulator, item){
   var populationTotal3 = accumulator;
-  return callback(accumulator);
+  let items = populationTotal3 + item.population;
+  return callback(items);
   }, 0);
 
 console.log(populationTotal2);

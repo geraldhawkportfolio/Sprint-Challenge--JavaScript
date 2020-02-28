@@ -67,14 +67,17 @@ console.log(Tyrannosaurus_D.weight());
 console.log(Velociraptor_D.diet());
 
 // How long was a stegosaurus?
-console.log();
+console.log(Stegosaurus_D.length());
 
 // What time period did tyrannosaurus live in?
-console.log();
+console.log(Tyrannosaurus_D.period());
 
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
-console.log();
+Tyrannosaurus_D.prototype.roar = function(){
+  return `"RAWERSRARARWERSARARARRRR!"`;
+}
+console.log(Tyrannosaurus_D.roar());
 
 
 // ==== Arrays ====
@@ -98,6 +101,7 @@ const graduates = [
 
 Once you have the new array created, sort the universities alphabetically and log the result. */
 const universities = [];
+
 console.log(universities);
 
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. This will be an array of strings.
